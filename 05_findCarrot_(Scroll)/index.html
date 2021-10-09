@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <div class="wrapper">
+    <button class="btn">Find a rabbit</button>
+    <div class="carrot box"></div>
+    <div class="carrot box"></div>
+    <div class="carrot box"></div>
+    <div class="carrot box"></div>
+    <div class="carrot box"></div>
+    <div class="carrot box"></div>
+    <div class="carrot box"></div>
+    <div class="rabbit box"></div>
+    <div class="carrot box"></div>
+    <div class="carrot box"></div>
+    <div class="carrot box"></div>
+    <div class="carrot box"></div>
+    <div class="carrot box"></div>
+  </div>
+</body>
+<script>
+  const rabbitBox = document.querySelector('.rabbit'),
+        findBtn = document.querySelector('.btn');
+
+  findBtn.addEventListener('click', () => {
+      rabbitBox.scrollIntoView({behavior:"smooth", block: 'center'});
+  });
+</script>
+</html>

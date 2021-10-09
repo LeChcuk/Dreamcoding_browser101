@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <div id="crosshair-h" class="hair"></div>
+  <div id="crosshair-v" class="hair"></div>
+  <img class="target" src="./target.png" alt="">
+  <div id="crosshair-tag"></div>
+</body>
+
+<script>
+  const horizontal = document.querySelector('#crosshair-h'),
+      vertical = document.querySelector('#crosshair-v'),
+      tag = document.querySelector('#crosshair-tag'),
+      target = document.querySelector('.target'),
+      targetRect = target.getBoundingClientRect(),
+      targetHalfWidth = targetRect.width / 2,
+      targetHalfHeight = targetRect.height /2;
+
+      // top, left는 layout-paint-composition 과정을 거쳐서 성능상 좋지 않지만,
+      // transform은 composition만 수행하기 때문에 성능상 좋다.
+  document.addEventListener('mousemove', (e) => {
+    const x = e.clientX,
+          y = e.clientY;
+
+    horizontal.style.transform = `translateY(${y}px)`;
+    vertical.style.transform = `translateX(${x}px)`;
+
+    tag.style.transform = `translate(${x}px, ${y}px)`;
+    target.style.transform = `translate(${x-targetHalfWidth}px, ${y-targetHalfHeight}px)`;
+    tag.innerHTML = `${e.clientX}px, ${e.clientY}px`;
+  })
+</script>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+
+    body{
+      background-color: black;
+
+    }
+    .rect{
+      width: 200px;
+      height: 200px;
+      background-color: antiquewhite;
+      margin-bottom: 10px;
+      border-radius: 4px;
+    }
+    .special{
+      background-color:cornflowerblue
+    }
+    button{
+      display: block;
+      position: fixed;
+    }
+    button:nth-child(1){
+      right:310px;
+    }
+    button:nth-child(2){
+      right:180px;
+    }
+    button:nth-child(3){
+      right:50px;
+    }
+  </style>
+</head>
+<body>
+  <button>Scroll by 100px(y)</button>
+  <button>Scroll to 100px(y)</button>
+  <button>Scroll into special</button>
+  <div class="rect"></div>
+  <div class="rect"></div>
+  <div class="rect"></div>
+  <div class="rect"></div>
+  <div class="rect"></div>
+  <div class="rect"></div>
+  <div class="rect"></div>
+  <div class="rect special"></div>
+  <div class="rect"></div>
+  <div class="rect"></div>
+  <div class="rect"></div>
+  <div class="rect"></div>
+  
+</body>
+
+<script>
+  const divs = document.querySelectorAll('.rect'),
+      buttons = document.querySelectorAll('button'),
+      specialDiv = document.querySelector('.special');
+  let scrollY = 0;
+
+  divs.forEach((div) => {
+    div.addEventListener('click', (e) => {
+      console.log(div.getBoundingClientRect());
+      console.log(e.clientX);
+    });
+  })
+  window.addEventListener('click', (e) => {
+    console.log(`client : ${e.clientX}, ${e.clientY}`);
+    console.log(`page : ${e.pageX}, ${e.pageY}`);
+  })
+
+  
+  buttons[0].addEventListener('click', () => {
+    scrollY += 100;
+    window.scrollBy({
+      top: scrollY,
+      left: 0,
+      behavior: 'smooth'
+    });
+  })
+  buttons[1].addEventListener('click', () => {
+    window.scrollTo({
+      top:100,
+      left:0,
+      behavior:'smooth'
+    });
+  })
+  buttons[2].addEventListener('click', () => {
+    specialDiv.scrollIntoView({behavior:"smooth"});
+  })
+</script>
+</html>

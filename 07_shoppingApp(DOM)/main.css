@@ -1,0 +1,75 @@
+html, body{
+  height: 100%;
+}
+body{
+  background-color: bisque;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.listWindow{
+  width: 22vw;
+  min-height: 600px;
+  min-width: 400px;
+  height: 60vh;
+  background-color: red;
+  position: relative;
+  border-radius: 20px;
+}
+
+.listWindow__header{
+  height: 5vh;
+  background-color: aqua;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  font-size:1rem;
+  font-weight: bold;
+}
+
+.listWindow__content{
+  height: 47vh;
+  background-color: #eeeeee;
+}
+
+.listWindow__textInput{
+  height: 3vh;
+  background-color: #fff;
+}
+.listWindow__textInput input{
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  border: none;
+}
+.listWindow__textInput input:focus{
+  outline: none;
+}
+
+
+.listWindow__footer{
+  height: 5vh;
+  background-color:aqua;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer__circle{
+  width: 10%;
+  height: 90%;
+  background-color: #000;
+  display: flex;
+  align-items: center;
+  border-radius:50%;
+  justify-content: center;
+  cursor: pointer;
+}
+.footer__circle i{
+  color:#fff;
+  font-size: 28px;
+}

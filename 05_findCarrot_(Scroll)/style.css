@@ -1,0 +1,34 @@
+body{
+  background-color: #000;
+}
+
+button{
+  background-color:tomato;
+  color:#fff;
+  height: 20px;
+  font-size: 18px;
+  border: none;
+  outline: none;
+  border-radius: 2px;
+  margin-bottom:10px;
+}
+
+.wrapper{
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.box{
+  width: 250px;
+  height: 250px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.carrot{
+  background-image: url('./carrot.png');
+}
+.rabbit{
+  background-image: url('./rabbit.png');
+}

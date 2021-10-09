@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .inner{
+      background-color: aqua;
+      display: inline-block;
+      font-size:26px;
+    }
+  </style>
+</head>
+<body>
+  <div class="inner">Window Size</div>
+</body>
+
+<script>
+  const innerDiv = document.querySelector('.inner');
+  function updateFunction() {
+    innerDiv.innerHTML = `
+      window.screen : ${window.screen.availWidth}, ${window.screen.availHeight} <br/>
+      window.outer : ${window.outerWidth}, ${window.outerHeight} <br/>
+      window.inner : ${window.innerWidth}, ${window.innerHeight} <br/>
+      documentElement.clientWidth: ${document.documentElement.clientWidth}, ${document.documentElement.clientHeight} <br/>
+    `;
+  }
+
+  window.addEventListener('resize', () => {
+    updateFunction();
+  });
+  updateFunction();
+  
+</script>
+</html>
