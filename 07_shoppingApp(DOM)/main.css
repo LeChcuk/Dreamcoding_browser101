@@ -9,9 +9,9 @@ body{
 }
 .listWindow{
   width: 22vw;
+  height: 60vh;
   min-height: 600px;
   min-width: 400px;
-  height: 60vh;
   background-color: red;
   position: relative;
   border-radius: 20px;
@@ -19,6 +19,8 @@ body{
 
 .listWindow__header{
   height: 5vh;
+  /* min-height: calc((600px * 5) / 60px); */
+  min-height: 50px;
   background-color: aqua;
   display: flex;
   justify-content: center;
@@ -31,11 +33,27 @@ body{
 
 .listWindow__content{
   height: 47vh;
+  min-height: 470px;
   background-color: #eeeeee;
+}
+.listWindow__content div {
+  margin-bottom:10px;
+  padding-left:20px;
+  padding-top:5px;
+  display: flex;
+  justify-content: space-between;
+}
+.listWindow__content i{
+  margin-right:30px;
+  cursor: pointer;
+}
+.listWindow__content i:hover{
+  color:red;
 }
 
 .listWindow__textInput{
   height: 3vh;
+  min-height: 30px;
   background-color: #fff;
 }
 .listWindow__textInput input{
@@ -48,9 +66,9 @@ body{
   outline: none;
 }
 
-
 .listWindow__footer{
   height: 5vh;
+  min-height: 50px;
   background-color:aqua;
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;
