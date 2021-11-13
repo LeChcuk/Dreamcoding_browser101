@@ -31,6 +31,7 @@ function addList() {
     contentList.appendChild(blockEle);
 
     inputBox.value = '';
+    inputBox.focus();
 }
 
 // DELETE

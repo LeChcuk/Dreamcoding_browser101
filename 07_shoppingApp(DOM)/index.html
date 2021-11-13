@@ -11,31 +11,37 @@
   <script src="main.js" defer></script>
 </head>
 <body>
-  <div class="listWindow">
-    <div class="listWindow__header">
+  <section class="listWindow">
+    <!-- 1. header -->
+    <header class="listWindow__header">
       Shopping List
-    </div>
+    </header>
+
+    <!-- 2. content -->
     <div class="listWindow__content">
-      <div>
+      <div class="item">
         <span>우유</span> 
         <i class="fas fa-trash"></i>
       </div>
       
-      <div>
+      <div class="item">
         <span>밀크</span>
         <i class="fas fa-trash"></i>
       </div>
     </div>
+
+    <!-- 3. input -->
     <div class="listWindow__textInput">
       <input type="text">
     </div>
     
-    <div class="listWindow__footer">
+    <!-- 4. footer -->
+    <footer class="listWindow__footer">
       <div class="footer__circle">
         <i class="fa fa-plus"></i>
       </div>
-    </div>
-  </div>
+    </footer>
+  </section>
   
 </body>
 </html>
