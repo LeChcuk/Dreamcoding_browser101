@@ -7,6 +7,13 @@ body{
   align-items: center;
   justify-content: center;
 }
+li{
+  list-style: none;
+}
+ul{
+  padding:0;
+  margin: 0;
+}
 .listWindow{
   width: 22vw;
   height: 60vh;
@@ -15,6 +22,8 @@ body{
   background-color: red;
   position: relative;
   border-radius: 20px;
+  -webkit-box-shadow: 2px 2px 15px 5px #000000; 
+box-shadow: 2px 2px 15px 5px #000000;
 }
 
 .listWindow__header{
@@ -37,8 +46,9 @@ background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 
   height: 47vh;
   min-height: 470px;
   background-color: #eeeeee;
+  overflow-y: auto;
 }
-.listWindow__content div {
+.listWindow__content .item {
   margin-bottom:10px;
   padding-left:33px;
   padding-top:15px;
@@ -52,6 +62,12 @@ background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 
 .listWindow__content i:hover{
   color:red;
 }
+.listWindow__content .divider{
+  width: 90%;
+  height: 1px;
+  background-color: lightgray;
+  margin: auto;
+}
 
 .listWindow__textInput{
   height: 3vh;
@@ -61,8 +77,10 @@ background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 
 .listWindow__textInput input{
   height: 100%;
   width: 100%;
-  padding: 0;
+  padding: 0 16px;
   border: none;
+  box-sizing: border-box;
+  font-weight: 700;
 }
 .listWindow__textInput input:focus{
   outline: none;
@@ -89,6 +107,10 @@ background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 
   border-radius:50%;
   justify-content: center;
   cursor: pointer;
+  transition: transform 200ms ease-in;
+}
+.footer__circle:hover{
+  transform: scale(1.1);
 }
 .footer__circle i{
   color:#fff;

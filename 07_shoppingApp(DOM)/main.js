@@ -16,7 +16,17 @@ addBtn.addEventListener('click', () => {
 // 리스트 추가 함수
 const contentList = document.querySelector('.listWindow__content');
 function addList() {
+    if (inputBox.value === '') return;
+
+    const container = document.createDocumentFragment();
+
+    const liEle = document.createElement('li');
+    liEle.setAttribute('class', 'item__row');
+    container.appendChild(liEle);
+
     const blockEle = document.createElement('div');
+    blockEle.setAttribute('class', 'item');
+    liEle.appendChild(blockEle);
 
     const txtEle = document.createElement('span');
     blockEle.appendChild(txtEle);
@@ -27,8 +37,15 @@ function addList() {
     const iconEle = document.createElement('i');
     iconEle.setAttribute('class', 'fas fa-trash');
     blockEle.appendChild(iconEle);
+    iconEle.addEventListener('click', () => {
+        contentList.removeChild(liEle);
+    });
 
-    contentList.appendChild(blockEle);
+    const dividerEle = document.createElement('div');
+    dividerEle.setAttribute('class', 'divider');
+    liEle.appendChild(dividerEle);
+
+    contentList.appendChild(container);
 
     inputBox.value = '';
     inputBox.focus();
@@ -39,6 +56,7 @@ function addList() {
 const delBtn = document.querySelectorAll('.listWindow__content i');
 delBtn.forEach((n) => {
     n.addEventListener('click', () => {
-        contentList.removeChild(n.parentNode);
+        console.log(n);
+        contentList.removeChild(n.parentNode.parentNode);
     });
 });
