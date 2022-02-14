@@ -19,6 +19,23 @@ let started = false;
 let score = 0;
 let timer = undefined;
 
+field.addEventListener('click', ({ target }) => {
+    if (!target.matches('img')) return;
+    else if (target.matches('img.bug')) {
+        lostGame();
+    } else {
+        console.log('carrot here');
+        target.parentNode.removeChild(target);
+        score++;
+
+        if (score === CARROT_COUNT) {
+            hideGameButton();
+            stopGameTimer();
+            showPopUpWithText('YOU WON🎆');
+        }
+    }
+});
+
 popUpRefresh.addEventListener('click', () => {
     replayGame();
 });
@@ -66,12 +83,18 @@ function showGameButton() {
     gameBtn.style.visibility = 'visible';
 }
 
+function lostGame() {
+    showPopUpWithText('YOU LOST🤷‍♀️');
+    hideGameButton();
+    clearInterval(timer);
+}
+
 function startGameTimer() {
     let remainingTimeSec = GAME_DURATION_SEC;
     updateTimerText(remainingTimeSec);
     timer = setInterval(() => {
         if (remainingTimeSec <= 0) {
-            clearInterval(timer);
+            lostGame();
             return;
         }
         updateTimerText(--remainingTimeSec);

@@ -44,9 +44,6 @@ i{
 .game__button:hover{
   transform: scale(1.1);
 }
-.game__button--hide{
-  visibility: hidden;
-}
 
 .game__timer{
   margin: 10px 0;
@@ -57,9 +54,6 @@ i{
   border: 8px solid black;
   border-radius: 8px;
   visibility: hidden;
-}
-.game__timer--hide{
-  display: none;
 }
 
 .game__score{
@@ -74,9 +68,6 @@ i{
   color:#fff;
   visibility: hidden;
 }
-.game__score--hide{
-  display: none;
-}
 
 /* 게임 필드 */
 .game__field{
@@ -84,6 +75,24 @@ i{
   height: 100%;
   position: relative;
   margin-top:600px;
+  /* opacity: 0.4; */
+  /* background-color: blue; */
+}
+.game__field .objects{
+  position: relative;
+  /* top:50px; */
+  /* left:50px; */
+  display: inline-block;
+  width: 80px;
+  height: 80px;
+  background-size:cover;
+  background-repeat: no-repeat;
+}
+.game__field .bug{
+  background-image: url('./img/bug.png');
+}
+.game__field .carrot{
+  background-image: url('./img/carrot.png');
 }
 
 .pop-up{
@@ -118,4 +127,20 @@ i{
   margin-top:28px;
   color:#fff;
   font-size:80px;
+}
+
+.carrot{
+  transition: transform .1s ease-in;
+  cursor: pointer;
+}
+.carrot:hover{
+  transform: scale(1.2);
+}
+
+.bug{
+  transition: transform .1s ease-in;
+  cursor: pointer;
+}
+.bug:hover{
+  transform: scale(1.2);
 }
