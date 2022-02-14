@@ -77,7 +77,7 @@ i{
   /* background-color: blue; */
 }
 .game__field .objects{
-  position: relative;
+  position: absolute;
   /* top:50px; */
   /* left:50px; */
   display: inline-block;
