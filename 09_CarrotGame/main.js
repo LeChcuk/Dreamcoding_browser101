@@ -1,66 +1,113 @@
 'use strict';
 
 const CARROT_SIZE = 80;
-const gameField = document.querySelector('.game__field');
-const fieldRect = gameField.getBoundingClientRect();
-const startBtn = document.querySelector('.game__button');
+const CARROT_COUNT = 5;
+const BUG_COUNT = 5;
+const GAME_DURATION_SEC = 5;
+
+const field = document.querySelector('.game__field');
+const fieldRect = field.getBoundingClientRect();
+const gameBtn = document.querySelector('.game__button');
 const gameTimer = document.querySelector('.game__timer');
 const gameScore = document.querySelector('.game__score');
-const popup = document.querySelector('.pop-up');
-const popupMsg = document.querySelector('.pop-up__message');
-const refreshBtn = document.querySelector('.pop-up__refresh');
-let timeoutId;
-let startFlag = 0;
 
-startBtn.addEventListener('click', () => {
-    if (!startFlag) {
-        initGame();
-    } else if (startFlag) {
-        startFlag = 0;
-        clearInterval(timeoutId);
-        gameTimer.textContent = '00:00';
-        popup.classList.remove('pop-up--hide');
-        startBtn.classList.add('game__button--hide');
-    }
+const popUp = document.querySelector('.pop-up');
+const popUpMessage = document.querySelector('.pop-up__message');
+const popUpRefresh = document.querySelector('.pop-up__refresh');
+
+let started = false;
+let score = 0;
+let timer = undefined;
+
+popUpRefresh.addEventListener('click', () => {
+    replayGame();
 });
-refreshBtn.addEventListener('click', () => {
-    gameField.textContent = ''; // 모든 벌레와 당근들 제거하기
-    startBtn.classList.remove('game__button--hide');
-    popup.classList.add('pop-up--hide');
+
+function replayGame() {
+    showGameButton();
+    startGameTimer();
+    hidePopUp();
     initGame();
+    started = true;
+}
+
+gameBtn.addEventListener('click', () => {
+    if (started) {
+        stopGame();
+    } else {
+        startGame();
+    }
+    started = !started;
 });
+
+function startGame() {
+    initGame();
+    showStopButton();
+    showTimerAndScore();
+    startGameTimer();
+}
+function stopGame() {
+    stopGameTimer();
+    hideGameButton();
+    showPopUpWithText('REPLAY?');
+}
+
+function showStopButton() {
+    const icon = gameBtn.querySelector('.fa-solid');
+    icon.classList.add('fa-stop');
+    icon.classList.remove('fa-play');
+}
+
+function hideGameButton() {
+    gameBtn.style.visibility = 'hidden';
+}
+
+function showGameButton() {
+    gameBtn.style.visibility = 'visible';
+}
+
+function startGameTimer() {
+    let remainingTimeSec = GAME_DURATION_SEC;
+    updateTimerText(remainingTimeSec);
+    timer = setInterval(() => {
+        if (remainingTimeSec <= 0) {
+            clearInterval(timer);
+            return;
+        }
+        updateTimerText(--remainingTimeSec);
+    }, 1000);
+}
+
+function stopGameTimer() {
+    clearInterval(timer);
+}
+
+function updateTimerText(time) {
+    const minutes = Math.floor(time / 60);
+    const seconds = time % 60;
+    gameTimer.textContent = `${minutes}:${seconds}`;
+}
+
+function showTimerAndScore() {
+    gameTimer.style.visibility = 'visible';
+    gameScore.style.visibility = 'visible';
+}
+
+function showPopUpWithText(text) {
+    popUpMessage.innerHTML = text;
+    popUp.classList.remove('pop-up--hide');
+}
+
+function hidePopUp() {
+    popUp.classList.add('pop-up--hide');
+}
 
 function initGame() {
-    startFlag = 1;
+    field.innerHTML = '';
+    gameScore.innerText = CARROT_COUNT;
     // 벌레와 당근을 생성한 뒤 field에 추가해줌
-    console.log(fieldRect);
-    addItem('carrot', 5, 'img/carrot.png');
-    addItem('bug', 5, 'img/bug.png');
-
-    // play - stop 아이콘 전환
-    startBtn.firstElementChild.classList.remove('fa-play');
-    startBtn.firstElementChild.classList.add('fa-stop');
-
-    // show up timer and score
-    gameTimer.classList.remove('game__timer--hide');
-    gameScore.classList.remove('game__score--hide');
-
-    // set Timer's clock
-    let cnt = 5;
-    gameTimer.textContent = `00:0${cnt--}`;
-    timeoutId = setInterval(() => {
-        gameTimer.textContent = `00:0${cnt}`;
-        if (cnt-- === 0) {
-            clearInterval(timeoutId);
-            startBtn.classList.add('game__button--hide');
-            popup.classList.remove('pop-up--hide');
-            popupMsg.textContent = 'YOU LOST🤦‍♂️';
-            startFlag = 0;
-        }
-    }, 1000);
-
-    // set Scroe
-    gameScore.textContent = 5;
+    addItem('carrot', CARROT_COUNT, 'img/carrot.png');
+    addItem('bug', BUG_COUNT, 'img/bug.png');
 }
 
 function addItem(className, count, imgPath) {
@@ -78,7 +125,7 @@ function addItem(className, count, imgPath) {
         const y = randomNumber(y1, y2);
         item.style.left = `${x}px`;
         item.style.top = `${y}px`;
-        gameField.appendChild(item);
+        field.appendChild(item);
     }
 }
 

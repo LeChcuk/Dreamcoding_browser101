@@ -56,6 +56,7 @@ i{
   background-color: #fff;
   border: 8px solid black;
   border-radius: 8px;
+  visibility: hidden;
 }
 .game__timer--hide{
   display: none;
@@ -71,6 +72,7 @@ i{
   text-align: center;
   padding-top:5px;
   color:#fff;
+  visibility: hidden;
 }
 .game__score--hide{
   display: none;
