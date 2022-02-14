@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <input type="checkbox">
+  <em class="message">off</em>
+
+  <script>
+    const msg = document.querySelector('.message');
+    const checkbox = document.querySelector('input[type=checkbox]');
+
+    checkbox.onchange = e => {
+      console.log(e.target);
+      console.log(e.currentTarget);
+      console.log(`e.target === e.currentTarget?? -> ${e.target === e.currentTarget}`);
+      
+      msg.textContent = e.target.checked ? 'on' : 'off';
+    }
+
+  </script>
+</body>
+</html>

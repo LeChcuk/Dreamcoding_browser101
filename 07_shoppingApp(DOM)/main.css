@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 html, body{
   height: 100%;
 }
@@ -15,23 +19,20 @@ ul{
   margin: 0;
 }
 .listWindow{
-  width: 22vw;
-  height: 60vh;
-  min-height: 600px;
-  min-width: 400px;
+  width: 400px;
   background-color: red;
   position: relative;
   border-radius: 20px;
-  -webkit-box-shadow: 2px 2px 15px 5px #000000; 
-box-shadow: 2px 2px 15px 5px #000000;
+  -webkit-box-shadow: 2px 2px 15px 5px #000000;
+  box-shadow: 2px 2px 15px 5px #000000;
 }
 
 .listWindow__header{
-  height: 5vh;
+  height: 4;
   /* min-height: calc((600px * 5) / 60px); */
   min-height: 50px;
-background: rgb(238,174,202);
-background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
+  background: rgb(238,174,202);
+  background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -43,7 +44,7 @@ background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 
 }
 
 .listWindow__content{
-  height: 47vh;
+  /* height: 47vh; */
   min-height: 470px;
   background-color: #eeeeee;
   overflow-y: auto;
@@ -70,7 +71,7 @@ background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 
 }
 
 .listWindow__textInput{
-  height: 3vh;
+  height: 32px;
   min-height: 30px;
   background-color: #fff;
 }
@@ -87,7 +88,7 @@ background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 
 }
 
 .listWindow__footer{
-  height: 5vh;
+  /* height: 5vh; */
   min-height: 50px;
   background: rgb(238,174,202);
 background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
