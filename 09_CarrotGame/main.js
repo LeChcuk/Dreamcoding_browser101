@@ -1,11 +1,10 @@
 const gameField = document.querySelector('.game__field');
-
 const gameBtn = document.querySelector('.game__button');
 gameBtn.addEventListener('click', (e) => {
-    init();
+    initGame();
 });
 
-function init() {
+function initGame() {
     console.log('게임 시작!');
     // Bug를 .game__field에 랜덤으로 5개 포지셔닝
     // Carrot을 .game__field에 랜덤으로 5개 포지셔닝
