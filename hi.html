@@ -5,12 +5,76 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
- 
+  <style>
+    button{
+      width: 300px;
+      height: 150px;
+      background-color: bisque;
+      cursor: pointer;
+      display: flex;
+      margin: 20px;
+    }
+    button:hover{
+      background-color: brown;
+    }
+  </style>
 </head>
 <body>
+  <button class="loop">while(true)</button>
+  <button class="event">setTimeout</button>
+  <button class="start">Click to start</button>
   
   <script>
-   
+   const btn1 = document.querySelector('.loop');
+   const btn2 = document.querySelector('.event');
+   const btn3 = document.querySelector('.start');
+
+    function add(a,b){
+      const sum = a + b;
+      return sum;
+    }
+    function calculate(a,b){
+      console.log('calculate');
+      const result = add(a,b);
+      return result;
+    }
+
+    function main(){
+      const result = calculate(3,4);
+      const element = document.createElement('span');
+      element.innerText = result;
+      document.body.appendChild(element);
+      console.log(result);
+      return;
+    }
+
+    btn3.addEventListener('click',() => {
+      main();
+    });
+
+
+
+
+
+
+
+   btn1.addEventListener('click', () => {
+     while(true){
+
+     }
+   })
+
+   btn2.addEventListener('click', () => {
+     handleClick();
+   })
+
+   function handleClick(){
+     console.log('handleClick');
+     setTimeout(() => {
+       console.log('setTimeout');
+       handleClick();
+     }, 0);
+   }
   </script>
 </body>
 </html>
