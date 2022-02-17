@@ -1,0 +1,114 @@
+:root {
+  /* color */
+  --color-black: #3f454d;
+  --color-white: #ffffff;
+  --color-blue: #3b88c3;
+  --color-yellow: #fbbe28;
+  --color-pink: #fd7f84;
+  --color-light-grey: #dfdfdf;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html{
+  background-color: var(--color-black);
+}
+
+/* Section - body */
+.body{
+  width: 1200px;
+  border: 2px solid red;
+  margin: 100px auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Section1 - Header */
+.body__header{
+  width: 800px;
+}
+.body__logoDiv{
+  display: flex;
+  justify-content: center;
+}
+.body__logo{
+  width: 150px;
+  height: 150px;
+  cursor: pointer;
+}
+
+/* 옷 필터 아이콘들 */
+.body__filterBtnsDiv{
+  display: flex;
+  justify-content: space-between;
+  margin: 40px 0;
+}
+
+.body__filter{
+  width: 100px;
+  height: 100px;
+  cursor: pointer;
+  border:0;
+  font-size:24px;
+  font-weight: bold;
+}
+
+.body__shrits{
+}
+
+.body__pants{
+}
+
+.body__skirts{
+}
+
+.body__blue{
+  background-color: var(--color-blue);
+}
+
+.body__yellow{
+  background-color: var(--color-yellow);
+}
+
+.body__pink{
+  background-color: var(--color-pink);
+}
+
+
+/* Section2 - Main */
+.body__main{
+  width: 800px;
+  height: 1000px;
+  border:3px solid blue;
+  overflow: auto;
+}
+
+::-webkit-scrollbar{
+  opacity: 0.7;
+  color: red;
+}
+::-webkit-scrollbar-thumb{
+  color:#3b88c3;
+}
+
+.main__card{
+  width: 100%;
+  height: 110px;
+  margin: 10px;
+  background-color: var(--color-white);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+}
+
+.main__imgInfo{
+  margin: 10px 30px;
+}
+
+.main__textInfo{
+  font-size: 24px;
+  font-weight: 600;
+}
